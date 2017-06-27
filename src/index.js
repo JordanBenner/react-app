@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
+import HelloMessage from './Hello';
 
-ReactDOM.render(<h1>Hello World</h1>, document.getElementById('root'));
+ReactDOM.render(<HelloMessage name="Jordan"/>, document.getElementById('root'));
 registerServiceWorker();
