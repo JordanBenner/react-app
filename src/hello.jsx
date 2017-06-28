@@ -9,8 +9,8 @@ class HelloMessage extends Component {
     this.state = {
       date: new Date(),
       people: [
-        {id: 1, name: 'Paul'},
-        {id: 2, name: 'Paulette'}
+        {id: 1, name: 'Jordan'},
+        {id: 2, name: 'Benner'}
       ]
     };
   }
