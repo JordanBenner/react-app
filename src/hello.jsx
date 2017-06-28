@@ -1,24 +1,21 @@
-import React, {
-  Component
-} from 'react';
+import React, { Component } from 'react';
+
+import HelloLi from './HelloLi';
+import './Hello.css';
 
 class HelloMessage extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props);
-    this.state = date: new Date()
-    people: [{
-        id: 1,
-        name: 'Paul'
-      },
-      {
-        id: 2,
-        name: 'Paulette'
-      }
-    ]
+    this.state = {
+      date: new Date(),
+      people: [
+        {id: 1, name: 'Paul'},
+        {id: 2, name: 'Paulette'}
+      ]
+    };
   }
 
   componentDidMount() {
-    var self = this;
     this.timerID = setInterval(
       () => this.tick(),
       1000
@@ -30,53 +27,26 @@ class HelloMessage extends Component {
   }
 
   tick() {
-    this.setState {
-      date: new Date()
+    this.setState({date: new Date()});
+  }
 
-    });
-  // events
-  handlClick(event, p) {
-    if (p.selected) {
-      p.selected = false;
-    } else {
-      p.selected = true;
-    }
+  handleClick() {
     this.setState({people: this.state.people});
   }
 
-    render() {
-      return ( <
-        div >
-        <
-        h1 > Hello {
-          this.props.name
-        } < /h1> <
-        h2 > It is {
-          this.state.date.toLocaleTimeString()
-        }. < /h2> <
-        ul >
-        // events
-        {
-          this.state.people.map((p) = >
-            <
-            li key = {
-              p.id
-            } >
-            <
-            button onClick = {
-              (e) => this.handleClick(e, p)
-            } > {
-              p.name
-            } <
-            /button> <
-            /li>
-
-          )
-        } <
-        /ul> <
-        /div>
-      )
-    }
+  render () {
+    return (
+      <div>
+        <h1>Hello {this.props.name}</h1>
+        <h2>It is {this.state.date.toLocaleTimeString()}</h2>
+        <ul>
+          {this.state.people.map((p) =>
+            <HelloLi item={p} key={p.id} callback={() => this.handleClick()}/>
+          )}
+        </ul>
+      </div>
+    )
   }
+}
 
-  export default HelloMessage;
+export default HelloMessage;
